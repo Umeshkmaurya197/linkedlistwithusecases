@@ -51,13 +51,22 @@ public class LinkedListDemo<T> {
 			return;
 		}
 		Node<T> currentNode = head;
-		int count=1;
-		while(count < position - 1) {
-			currentNode=currentNode.next;
+		int count = 1;
+		while (count < position - 1) {
+			currentNode = currentNode.next;
 			count++;
 		}
-		newNode.next=currentNode.next;
+		newNode.next = currentNode.next;
 		currentNode.next = newNode;
+	}
+
+	// delete First Elements
+	public void deleteFirst() {
+		if (head == null) {
+			System.out.println(" List is empty nothing to delete .");
+			return;
+		}
+		head = head.next;
 	}
 
 	// print List Method
@@ -79,7 +88,7 @@ public class LinkedListDemo<T> {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		LinkedListDemo<Integer> linkedListDemo2 = new LinkedListDemo<Integer>();
 		LinkedListDemo<Integer> linkedListDemo3 = new LinkedListDemo<Integer>();
-		
+
 		linkedListDemo.addFirst(70);
 		linkedListDemo.printList(); // 70 -> null
 
@@ -103,10 +112,14 @@ public class LinkedListDemo<T> {
 		System.out.println(" ");
 		linkedListDemo3.addFirst(56);
 		linkedListDemo3.addLast(70);
-		linkedListDemo3.printList();  // 56 -> 70 -> null  
-	
+		linkedListDemo3.printList(); // 56 -> 70 -> null
+
 		linkedListDemo3.addMiddle(2, 30);
-		linkedListDemo3.printList();  //56 -> 30 -> 70 -> null 
+		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
+		
+		linkedListDemo3.deleteFirst();
+		linkedListDemo3.printList(); // 30 -> 70 -> null
+		
 	}
 
 }
