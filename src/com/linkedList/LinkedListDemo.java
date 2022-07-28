@@ -66,9 +66,28 @@ public class LinkedListDemo<T> {
 			System.out.println(" List is empty nothing to delete .");
 			return;
 		}
+		size--;
 		head = head.next;
 	}
 
+	// delete Last Node
+	public void deleteLast() {
+		if (head == null) {
+			System.out.println(" List is empty nothing to delete .");
+			return;
+		}
+		size--;
+		Node<T> secondLastNode = head;
+		Node<T> lastNode = head.next;
+		while (lastNode.next != null) {
+			secondLastNode = secondLastNode.next;
+			lastNode = lastNode.next;
+		}
+		secondLastNode.next = null;
+
+	}
+	
+	
 	// print List Method
 	public void printList() {
 		if (head == null) {
@@ -116,10 +135,19 @@ public class LinkedListDemo<T> {
 
 		linkedListDemo3.addMiddle(2, 30);
 		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
-		
+
 		linkedListDemo3.deleteFirst();
 		linkedListDemo3.printList(); // 30 -> 70 -> null
+
+		linkedListDemo3.deleteLast();
+		linkedListDemo3.printList(); // 30 -> null
+	
 		
+		
+	
+	
+	
+	
 	}
 
 }
