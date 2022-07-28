@@ -45,6 +45,14 @@ public class LinkedListDemo<T> {
 
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		
+		linkedListDemo.addFirst(70);
+		linkedListDemo.printList();			// 70  -> null
+		
+		linkedListDemo.addFirst(30);
+		linkedListDemo.printList();			// 30  -> 70  -> null
+		
+		linkedListDemo.addFirst(56);
+		linkedListDemo.printList();			// 56  -> 30  -> 70  -> null
 		
 	}
 
