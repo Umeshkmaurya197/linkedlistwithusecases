@@ -59,7 +59,26 @@ public class LinkedListDemo<T> {
 		newNode.next = currentNode.next;
 		currentNode.next = newNode;
 	}
-
+	// searchandInsert
+	public void searchThenInsert(T nodeValue,T data) {
+		Node<T> newNode = new Node<>(data);
+		if(head==null) {
+			System.out.println(" List is empty ");
+			return ;
+		}
+		Node<T> currentNode=head;
+		while(currentNode.next!=null) {
+			if(currentNode.data==nodeValue) {
+				newNode.next=currentNode.next;
+				currentNode.next=newNode;
+				return;
+			}
+			currentNode=currentNode.next;
+		}
+		return ;
+	}
+	
+	
 	// delete First Elements
 	public void deleteFirst() {
 		if (head == null) {
@@ -164,6 +183,8 @@ public class LinkedListDemo<T> {
 		boolean result = linkedListDemo3.searchElement(30);
 		System.out.println(" Searching for element 30 in the list , result is : "+result);
 		
+		linkedListDemo3.searchThenInsert(30, 40);
+		linkedListDemo3.printList(); // 56 -> 30 -> 40 -> 70 -> null
 	}
 
 }
