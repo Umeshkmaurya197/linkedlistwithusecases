@@ -10,7 +10,7 @@ public class LinkedListDemo<T> {
 			head = newNode;
 			return;
 		}
-		newNode = head.next;
+		newNode.next = head;
 		head = newNode;
 	}
 
@@ -34,8 +34,8 @@ public class LinkedListDemo<T> {
 			return;
 		}
 		Node<T> currentNode = head;
-		while (currentNode.next != null) {
-			System.out.println(currentNode + " ->");
+		while (currentNode!= null) {
+			System.out.print(" "+currentNode + " ->");
 			currentNode = currentNode.next;
 		}
 		System.out.println(" null");
