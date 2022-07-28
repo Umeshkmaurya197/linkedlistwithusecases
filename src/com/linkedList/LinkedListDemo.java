@@ -89,12 +89,10 @@ public class LinkedListDemo<T> {
 
 	// Search Element
 	public boolean searchElement(T data) {
-		Node<T> newNode = new Node<>(data);
 		if (head == null) {
 			System.out.println(" List is empty .");
 			return false;
 		}
-		int i = 0;
 		Node<T> currentNode = head;
 		while (currentNode != null) {
 			if (currentNode.data == data) {
