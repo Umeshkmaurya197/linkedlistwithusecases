@@ -44,7 +44,7 @@ public class LinkedListDemo<T> {
 	public static void main(String[] args) {
 
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
-		
+		LinkedListDemo<Integer> linkedListDemo2= new LinkedListDemo<Integer>(); 
 		linkedListDemo.addFirst(70);
 		linkedListDemo.printList();			// 70  -> null
 		
@@ -53,6 +53,17 @@ public class LinkedListDemo<T> {
 		
 		linkedListDemo.addFirst(56);
 		linkedListDemo.printList();			// 56  -> 30  -> 70  -> null
+		
+		System.out.println(" ");
+		
+		linkedListDemo2.addLast(56);		
+		linkedListDemo2.printList();        // 56  -> null 
+		
+		linkedListDemo2.addLast(30);
+		linkedListDemo2.printList();        // 56  -> 30  -> null
+		
+		linkedListDemo2.addLast(70);
+		linkedListDemo2.printList();        // 56  -> 30  -> 70  -> null 
 		
 	}
 
