@@ -1,10 +1,10 @@
 package com.linkedList;
 
-public class LinkedListDemo<T> {
+public class SortedLinkedList<T extends Comparable<T>> {
 	Node<T> head;
 	int size;
 
-	public LinkedListDemo() {
+	public SortedLinkedList() {
 		this.size = 0;
 	}
 
@@ -18,6 +18,7 @@ public class LinkedListDemo<T> {
 		}
 		newNode.next = head;
 		head = newNode;
+		sortedList();
 	}
 
 	// add Last Node -uc3
@@ -33,6 +34,7 @@ public class LinkedListDemo<T> {
 			currentNode = currentNode.next;
 		}
 		currentNode.next = newNode;
+		sortedList();
 	}
 
 	// add middle -uc4
@@ -58,6 +60,7 @@ public class LinkedListDemo<T> {
 		}
 		newNode.next = currentNode.next;
 		currentNode.next = newNode;
+		sortedList();
 	}
 
 	// delete First Elements -uc5
@@ -86,21 +89,22 @@ public class LinkedListDemo<T> {
 		secondLastNode.next = null;
 
 	}
+
 	// Search Element uc-7
-		public boolean searchElement(T data) {
-			if (head == null) {
-				System.out.println(" List is empty .");
-				return false;
-			}
-			Node<T> currentNode = head;
-			while (currentNode != null) {
-				if (currentNode.data == data) {
-					return true;
-				}
-				currentNode = currentNode.next;
-			}
+	public boolean searchElement(T data) {
+		if (head == null) {
+			System.out.println(" List is empty .");
 			return false;
 		}
+		Node<T> currentNode = head;
+		while (currentNode != null) {
+			if (currentNode.data == data) {
+				return true;
+			}
+			currentNode = currentNode.next;
+		}
+		return false;
+	}
 
 	// searchandInsert -uc8
 	public boolean searchThenInsert(T nodeValue, T data) {
@@ -119,7 +123,6 @@ public class LinkedListDemo<T> {
 		return false;
 	}
 
-	
 	// delete selected node -uc9
 	public void deleteNode(T nodeValue) {
 		if (head == null) {
@@ -154,66 +157,41 @@ public class LinkedListDemo<T> {
 		}
 		System.out.println(" null");
 	}
-	//return size of list  -uc9
+
+	// return size of list -uc9
 	public int getSize() {
 		return size;
 	}
 
+	// sorted List - uc10
+	public void sortedList() {
+		Node<T> currentNode = head;
+		Node<T> nextNode = null;
+		T tempNode;
+		while (currentNode != null) {
+			nextNode = currentNode.next;
+			while (nextNode != null) {
+				if ((currentNode.data).compareTo(nextNode.data) > 0) {
+					tempNode = currentNode.data;
+					currentNode.data = nextNode.data;
+					nextNode.data = tempNode;
+				}
+				nextNode = nextNode.next;
+			}
+			currentNode = currentNode.next;
+		}
+	}
+
 	public static void main(String[] args) {
 
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
-		LinkedListDemo<Integer> linkedListDemo2 = new LinkedListDemo<Integer>();
-		LinkedListDemo<Integer> linkedListDemo3 = new LinkedListDemo<Integer>();
-
-		linkedListDemo.addFirst(70);
-		linkedListDemo.printList(); // 70 -> null
-
-		linkedListDemo.addFirst(30);
-		linkedListDemo.printList(); // 30 -> 70 -> null
-
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		linkedListDemo.addFirst(56);
-		linkedListDemo.printList(); // 56 -> 30 -> 70 -> null
+		linkedListDemo.addFirst(30); 
+		linkedListDemo.addLast(40);
+		linkedListDemo.addLast(70);
 
-		System.out.println(" ");
+		linkedListDemo.printList();
 
-		linkedListDemo2.addLast(56);
-		linkedListDemo2.printList(); // 56 -> null
-
-		linkedListDemo2.addLast(30);
-		linkedListDemo2.printList(); // 56 -> 30 -> null
-
-		linkedListDemo2.addLast(70);
-		linkedListDemo2.printList(); // 56 -> 30 -> 70 -> null
-
-		System.out.println(" ");
-		linkedListDemo3.addFirst(56);
-		linkedListDemo3.addLast(70);
-		linkedListDemo3.printList(); // 56 -> 70 -> null
-
-		linkedListDemo3.addMiddle(2, 30);
-		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
-
-		linkedListDemo3.deleteFirst();
-		linkedListDemo3.printList(); // 30 -> 70 -> null
-
-		linkedListDemo3.deleteLast();
-		linkedListDemo3.printList(); // 30 -> null
-
-		System.out.println(" ");
-		linkedListDemo3.addFirst(56);
-		linkedListDemo3.addLast(70);
-		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
-		boolean result = linkedListDemo3.searchElement(30);
-		System.out.println(" Searching for element 30 in the list , result is : " + result);
-
-		linkedListDemo3.searchThenInsert(30, 40);
-		linkedListDemo3.printList(); // 56 -> 30 -> 40 -> 70 -> null
-
-		linkedListDemo3.deleteNode(40);
-		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
-		
-		System.out.println("List Size : "+linkedListDemo3.getSize()); // 3
-		
 	}
 
 }

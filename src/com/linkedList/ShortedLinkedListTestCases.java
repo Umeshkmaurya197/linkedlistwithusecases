@@ -4,11 +4,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-class LinkedListTestCases {
+class ShortedLinkedListTestCases {
 
 	@Test
 	public void given3NumbersWhenAddedToLinkedListShouldBeAddedToTop() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("--------Test addFirst--------");
 		linkedListDemo.addFirst(70);
 		linkedListDemo.addFirst(30);
@@ -19,7 +19,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void given3NumbersWhenAppendedShouldBeAddedToLast() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("---------Test addLast--------");
 		linkedListDemo.addLast(56);
 		linkedListDemo.addLast(30);
@@ -30,7 +30,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void given3NumberWhenInsertingSecondInBetweenShouldPassLinkedListResult() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("--------Test inMiddle--------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
@@ -42,7 +42,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void givenFirstElementWhenDeletedShouldPassLinkedListResult() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("-------Test deleteFirst------");
 		linkedListDemo.addLast(56);
 		linkedListDemo.addLast(30);
@@ -55,7 +55,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void givenLastElementWhenDeletedShouldLinkedListResult() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("-------Test deleteLast------");
 		linkedListDemo.addLast(56);
 		linkedListDemo.addLast(30);
@@ -68,8 +68,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void given1ElementWhenInsertedShouldReturnTrueIfElementExistsInLinkedList() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
-		System.out.println("-------Test searchElement------");
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();System.out.println("-------Test searchElement------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
 		linkedListDemo.addMiddle(2, 30);
@@ -80,8 +79,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void given2ElementWhenSearchThenInsertShouldReturnTrueIfElementExistsAndInsertedNextToElement() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
-		System.out.println("-------Test searchThenInsert------");
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();System.out.println("-------Test searchThenInsert------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
 		linkedListDemo.addMiddle(2, 30);
@@ -94,7 +92,7 @@ class LinkedListTestCases {
 
 	@Test
 	public void given4ElementWhenDeleteNodeShouldFindAndDeleteTheNode() {
-		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		SortedLinkedList<Integer> linkedListDemo = new SortedLinkedList<Integer>();
 		System.out.println("-------Test deleteNode------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);

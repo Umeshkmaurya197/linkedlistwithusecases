@@ -1,6 +1,6 @@
 package com.linkedList;
 
-public class Node<T> {
+public class Node<T extends Comparable<T>> {
 	T data;
 	Node<T> next;
 	public Node() {
@@ -14,5 +14,6 @@ public class Node<T> {
 	@Override
 	public String toString() {
 		return data+" ";
-	};
+	}
+	
 }
