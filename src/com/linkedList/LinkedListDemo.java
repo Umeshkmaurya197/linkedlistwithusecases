@@ -59,26 +59,24 @@ public class LinkedListDemo<T> {
 		newNode.next = currentNode.next;
 		currentNode.next = newNode;
 	}
+
 	// searchandInsert
-	public void searchThenInsert(T nodeValue,T data) {
+	public boolean searchThenInsert(T nodeValue, T data) {
 		Node<T> newNode = new Node<>(data);
-		if(head==null) {
-			System.out.println(" List is empty ");
-			return ;
-		}
-		Node<T> currentNode=head;
-		while(currentNode.next!=null) {
-			if(currentNode.data==nodeValue) {
-				newNode.next=currentNode.next;
-				currentNode.next=newNode;
-				return;
+
+		size++;
+		Node<T> currentNode = head;
+		while (currentNode.next != null) {
+			if (currentNode.data == nodeValue) {
+				newNode.next = currentNode.next;
+				currentNode.next = newNode;
+				return true;
 			}
-			currentNode=currentNode.next;
+			currentNode = currentNode.next;
 		}
-		return ;
+		return false;
 	}
-	
-	
+
 	// delete First Elements
 	public void deleteFirst() {
 		if (head == null) {
@@ -122,6 +120,7 @@ public class LinkedListDemo<T> {
 		return false;
 	}
 
+
 	// print List Method
 	public void printList() {
 		if (head == null) {
@@ -130,7 +129,7 @@ public class LinkedListDemo<T> {
 		}
 		Node<T> currentNode = head;
 		while (currentNode != null) {
-			System.out.print(" " + currentNode + " ->");
+			System.out.print(currentNode + " -> ");
 			currentNode = currentNode.next;
 		}
 		System.out.println(" null");
@@ -181,10 +180,11 @@ public class LinkedListDemo<T> {
 		linkedListDemo3.addLast(70);
 		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
 		boolean result = linkedListDemo3.searchElement(30);
-		System.out.println(" Searching for element 30 in the list , result is : "+result);
-		
+		System.out.println(" Searching for element 30 in the list , result is : " + result);
+
 		linkedListDemo3.searchThenInsert(30, 40);
 		linkedListDemo3.printList(); // 56 -> 30 -> 40 -> 70 -> null
+	
 	}
 
 }
