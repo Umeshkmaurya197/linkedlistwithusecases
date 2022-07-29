@@ -74,6 +74,9 @@ public class LinkedListDemo<T> {
 			}
 			currentNode = currentNode.next;
 		}
+		if(currentNode.next!=nodeValue) {
+			System.out.println("Element "+nodeValue+" Not found ");
+		}
 		return false;
 	}
 
@@ -119,7 +122,6 @@ public class LinkedListDemo<T> {
 		}
 		return false;
 	}
-
 
 	// print List Method
 	public void printList() {
@@ -180,11 +182,11 @@ public class LinkedListDemo<T> {
 		linkedListDemo3.addLast(70);
 		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
 		boolean result = linkedListDemo3.searchElement(30);
-		System.out.println(" Searching for element 30 in the list , result is : " + result);
+		System.out.println("Searching for element 30 , result is : " + result);
 
 		linkedListDemo3.searchThenInsert(30, 40);
 		linkedListDemo3.printList(); // 56 -> 30 -> 40 -> 70 -> null
-	
+		
 	}
 
 }

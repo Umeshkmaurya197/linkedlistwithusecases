@@ -63,7 +63,7 @@ class LinkedListTestCases {
 	}
 	
 	@Test
-	public void TestSearchElement() {		
+	public void given1ElementWhenInsertedShouldReturnTrueIfElementExistsInLinkedList() {		
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		System.out.println("-------Test searchElement------");
 		linkedListDemo.addFirst(56);
@@ -71,11 +71,10 @@ class LinkedListTestCases {
 		linkedListDemo.addMiddle(2, 30);
 		linkedListDemo.printList();
 		System.out.println("Search element 30 Result is : "+linkedListDemo.searchElement(30));
-		System.out.println();
 	}
 	
 	@Test
-	public void TestSearchThenInsertElement() {
+	public void given2ElementWhenSearchThenInsertShouldReturnTrueIfElementExistsAndInsertedNextToElement() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		System.out.println("-------Test searchThenInsert------");
 		linkedListDemo.addFirst(56);
