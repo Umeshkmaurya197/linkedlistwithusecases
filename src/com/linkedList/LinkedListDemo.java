@@ -8,7 +8,7 @@ public class LinkedListDemo<T> {
 		this.size = 0;
 	}
 
-	// add -first Node
+	// add first Node - uc2
 	public void addFirst(T data) {
 		Node<T> newNode = new Node<>(data);
 		size++;
@@ -20,7 +20,7 @@ public class LinkedListDemo<T> {
 		head = newNode;
 	}
 
-	// add -Last Node
+	// add Last Node -uc3
 	public void addLast(T data) {
 		Node<T> newNode = new Node<>(data);
 		size++;
@@ -35,7 +35,7 @@ public class LinkedListDemo<T> {
 		currentNode.next = newNode;
 	}
 
-	// add middle
+	// add middle -uc4
 	public void addMiddle(int position, T data) {
 		Node<T> newNode = new Node<>(data);
 		if (position > size) {
@@ -60,7 +60,49 @@ public class LinkedListDemo<T> {
 		currentNode.next = newNode;
 	}
 
-	// searchandInsert
+	// delete First Elements -uc5
+	public void deleteFirst() {
+		if (head == null) {
+			System.out.println(" List is empty nothing to delete .");
+			return;
+		}
+		size--;
+		head = head.next;
+	}
+
+	// delete Last Node -uc6
+	public void deleteLast() {
+		if (head == null) {
+			System.out.println(" List is empty nothing to delete .");
+			return;
+		}
+		size--;
+		Node<T> secondLastNode = head;
+		Node<T> lastNode = head.next;
+		while (lastNode.next != null) {
+			secondLastNode = secondLastNode.next;
+			lastNode = lastNode.next;
+		}
+		secondLastNode.next = null;
+
+	}
+	// Search Element uc-7
+		public boolean searchElement(T data) {
+			if (head == null) {
+				System.out.println(" List is empty .");
+				return false;
+			}
+			Node<T> currentNode = head;
+			while (currentNode != null) {
+				if (currentNode.data == data) {
+					return true;
+				}
+				currentNode = currentNode.next;
+			}
+			return false;
+		}
+
+	// searchandInsert -uc8
 	public boolean searchThenInsert(T nodeValue, T data) {
 		Node<T> newNode = new Node<>(data);
 
@@ -77,49 +119,27 @@ public class LinkedListDemo<T> {
 		return false;
 	}
 
-	// delete First Elements
-	public void deleteFirst() {
+	
+	// delete selected node -uc9
+	public void deleteNode(T nodeValue) {
 		if (head == null) {
-			System.out.println(" List is empty nothing to delete .");
+			System.out.println(" List is empty ");
 			return;
 		}
-		size--;
-		head = head.next;
-	}
-
-	// delete Last Node
-	public void deleteLast() {
-		if (head == null) {
-			System.out.println(" List is empty nothing to delete .");
-			return;
+		if (head == nodeValue) {
+			head = head.next;
 		}
 		size--;
-		Node<T> secondLastNode = head;
-		Node<T> lastNode = head.next;
-		while (lastNode.next != null) {
-			secondLastNode = secondLastNode.next;
-			lastNode = lastNode.next;
-		}
-		secondLastNode.next = null;
-
-	}
-
-	// Search Element
-	public boolean searchElement(T data) {
-		if (head == null) {
-			System.out.println(" List is empty .");
-			return false;
-		}
-		Node<T> currentNode = head;
+		Node<T> previousNode = head;
+		Node<T> currentNode = head.next;
 		while (currentNode != null) {
-			if (currentNode.data == data) {
-				return true;
+			if (currentNode.data == nodeValue) {
+				previousNode.next = currentNode.next;
 			}
+			previousNode = currentNode;
 			currentNode = currentNode.next;
 		}
-		return false;
 	}
-
 
 	// print List Method
 	public void printList() {
@@ -133,6 +153,10 @@ public class LinkedListDemo<T> {
 			currentNode = currentNode.next;
 		}
 		System.out.println(" null");
+	}
+	//return size of list  -uc9
+	public int getSize() {
+		return size;
 	}
 
 	public static void main(String[] args) {
@@ -184,7 +208,12 @@ public class LinkedListDemo<T> {
 
 		linkedListDemo3.searchThenInsert(30, 40);
 		linkedListDemo3.printList(); // 56 -> 30 -> 40 -> 70 -> null
-	
+
+		linkedListDemo3.deleteNode(40);
+		linkedListDemo3.printList(); // 56 -> 30 -> 70 -> null
+		
+		System.out.println("List Size : "+linkedListDemo3.getSize()); // 3
+		
 	}
 
 }

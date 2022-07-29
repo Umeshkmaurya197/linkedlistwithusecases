@@ -13,19 +13,21 @@ class LinkedListTestCases {
 		linkedListDemo.addFirst(70);
 		linkedListDemo.addFirst(30);
 		linkedListDemo.addFirst(56);
+
 		linkedListDemo.printList();
 	}
-	
+
 	@Test
 	public void given3NumbersWhenAppendedShouldBeAddedToLast() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
-		System.out.println("---------Test addLast--------");		
+		System.out.println("---------Test addLast--------");
 		linkedListDemo.addLast(56);
 		linkedListDemo.addLast(30);
 		linkedListDemo.addLast(70);
-		linkedListDemo.printList();		
+
+		linkedListDemo.printList();
 	}
-	
+
 	@Test
 	public void given3NumberWhenInsertingSecondInBetweenShouldPassLinkedListResult() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
@@ -33,11 +35,11 @@ class LinkedListTestCases {
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
 		linkedListDemo.printList();
-		
+
 		linkedListDemo.addMiddle(2, 30);
 		linkedListDemo.printList();
 	}
-	
+
 	@Test
 	public void givenFirstElementWhenDeletedShouldPassLinkedListResult() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
@@ -46,10 +48,11 @@ class LinkedListTestCases {
 		linkedListDemo.addLast(30);
 		linkedListDemo.addLast(70);
 		linkedListDemo.printList();
+
 		linkedListDemo.deleteFirst();
 		linkedListDemo.printList();
 	}
-	
+
 	@Test
 	public void givenLastElementWhenDeletedShouldLinkedListResult() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
@@ -58,32 +61,48 @@ class LinkedListTestCases {
 		linkedListDemo.addLast(30);
 		linkedListDemo.addLast(70);
 		linkedListDemo.printList();
+
 		linkedListDemo.deleteLast();
 		linkedListDemo.printList();
 	}
-	
+
 	@Test
-	public void TestSearchElement() {		
+	public void given1ElementWhenInsertedShouldReturnTrueIfElementExistsInLinkedList() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		System.out.println("-------Test searchElement------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
 		linkedListDemo.addMiddle(2, 30);
 		linkedListDemo.printList();
-		System.out.println("Search element 30 Result is : "+linkedListDemo.searchElement(30));
-		System.out.println();
+
+		System.out.println("Search element 30 Result is : " + linkedListDemo.searchElement(30));
 	}
-	
+
 	@Test
-	public void TestSearchThenInsertElement() {
+	public void given2ElementWhenSearchThenInsertShouldReturnTrueIfElementExistsAndInsertedNextToElement() {
 		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
 		System.out.println("-------Test searchThenInsert------");
 		linkedListDemo.addFirst(56);
 		linkedListDemo.addLast(70);
 		linkedListDemo.addMiddle(2, 30);
 		linkedListDemo.printList();
-		Boolean val= linkedListDemo.searchThenInsert(30, 40);
-	    linkedListDemo.printList();
+
+		Boolean val = linkedListDemo.searchThenInsert(30, 40);
+		linkedListDemo.printList();
 		assertEquals(true, val);
+	}
+
+	@Test
+	public void given4ElementWhenDeleteNodeShouldFindAndDeleteTheNode() {
+		LinkedListDemo<Integer> linkedListDemo = new LinkedListDemo<Integer>();
+		System.out.println("-------Test deleteNode------");
+		linkedListDemo.addFirst(56);
+		linkedListDemo.addLast(70);
+		linkedListDemo.addMiddle(2, 30);
+		linkedListDemo.searchThenInsert(30, 40);
+		linkedListDemo.printList();
+
+		linkedListDemo.deleteNode(40);
+		linkedListDemo.printList();
 	}
 }
